@@ -26,8 +26,9 @@ jobs:
       - name: Install pre-commit
         run: |
           sudo apt update
-          sudo apt install python3 gn pipx
-          pipx install pre-commit
+          sudo apt update
+          sudo apt install python3 gn pre-commit
+          pre-commit --version
       - name: Checkout
         uses: actions/checkout@v4
         with:
