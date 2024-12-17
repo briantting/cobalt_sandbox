@@ -264,7 +264,7 @@ vars = {
   'rbe_instance': Str('projects/cobalt-actions-devel/instances/default_instance'),
   # RBE project to download rewrapper config files for. Only needed if
   # different from the project used in 'rbe_instance'
-  'rewrapper_cfg_project': Str('rbe-chrome-untrusted'),
+  'rewrapper_cfg_project': Str(''),
   # reclient CIPD package
   'reclient_package': 'infra/rbe/client/',
   # reclient CIPD package version

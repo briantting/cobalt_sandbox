@@ -16,6 +16,9 @@ runs:
       - name: Add depot tools to PATH
         run: echo "$GITHUB_WORKSPACE/depot_tools" >> $GITHUB_PATH
         shell: bash
+      - name: Disable Chromium client side build telemetry
+        run: build_telemetry opt-out
+        shell: bash
       - name: Generate gclient file
         run: gclient config --name=src https://github.com/${{ github.repository }} --custom-var=download_remoteexec_cfg=True
         shell: bash
@@ -24,9 +27,6 @@ runs:
         run: |
           echo "target_os=['android']" >> .gclient
           gclient validate
-        shell: bash
-      - name: CIPD auth
-        run: cipd auth-login -service-account-json :gce
         shell: bash
       - name: gclient sync
         run: gclient sync -v --shallow --no-history -r ${{ github.sha }}
